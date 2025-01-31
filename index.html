@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarryMusto Autos - Your Car Destination</title>
+    <style>
+        body {
+            background-color: hsl(0, 92%, 46%);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: sky blue;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #560ae2e7#333;
+        }
+        p {
+            font-size: 18px;
+            color: hsl(199, 89%, 48%);
+        }
+        .car-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .car-item {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .car-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .car-item h3 {
+            margin: 10px 0 5px;
+        }
+        .car-item p {
+            color: #000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to BarryMusto Autos</h1>
+        <p>Find the best cars at unbeatable prices!</p>
+        
+        <h2>Car Collection & Prices</h2>
+        <div class="car-gallery">
+            
+            <!-- Generating 200 Cars with Random Images and Prices -->
+            <script>
+                const carTypes = ["Luxury Car", "Sports Car", "SUV", "Electric Car", "Sedan", "Convertible", "Truck", "Coupe"];
+                const gallery = document.querySelector(".car-gallery");
+                for (let i = 1; i <= 200; i++) {
+                    let carType = carTypes[Math.floor(Math.random() * carTypes.length)];
+                    let price = (Math.floor(Math.random() * 100) + 20) * 1000; // Prices from $20,000 - $120,000
+                    let carDiv = `
+                        <div class="car-item">
+                            <img src="https://source.unsplash.com/400x250/?car${i}" alt="${carType}">
+                            <h3>${carType} #${i}</h3>
+                            <p>Price: $${price.toLocaleString()}</p>
+                        </div>
+                    `;
+                    gallery.innerHTML += carDiv;
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
